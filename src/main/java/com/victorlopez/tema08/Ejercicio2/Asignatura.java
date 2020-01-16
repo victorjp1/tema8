@@ -42,4 +42,9 @@ public class Asignatura {
     public short getCurso() {
         return curso;
     }
+    public void imprimirAsig(){
+        System.out.println("La asignatura es: " + getNombre());//Mostramos el nombre de asignatura.
+        System.out.println("El código de asignatura es: " + getCod());//Mostramos el código de la asignatura.
+        System.out.println("El curso es: " + getCurso());//Mostramos el curso.
+    }
 }
