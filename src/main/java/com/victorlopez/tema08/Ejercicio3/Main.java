@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-public class Ejercicio3 {
+public class Main {
     public static void main(String[] args) {
         boolean salir;//Boolean que controla la salida del bucle del menu principal.
         boolean consulta;//Boolean que controla la salida del bucle del menu de consultas.
@@ -28,7 +28,6 @@ public class Ejercicio3 {
         alumnos[Alumno.getnAlumnos()] = new Alumno(98786667, "Luis","Dengra Dalmau", "4A", 608532388, "15/12/2000");
         alumnos[Alumno.getnAlumnos()] = new Alumno(34869008, "German","Gascón", "1C", 608532388, "15/12/2000");
         do {
-            lector.nextLine();
             mostrarMenu();//Mostramos el menú principal
             opcion = Integer.parseInt(lector.nextLine());//Leemos la opción
             switch (opcion) {//Valoramos la opcion
@@ -79,7 +78,7 @@ public class Ejercicio3 {
                     System.out.println("Introduce el grupo del alumno: ");//Pedimos el grupo del alumno
                     grupo = lector.nextLine();//Leemos el grupo del alumno
                     do {
-                        //PEdimos el telefono del alymno
+                        //Pedimos el telefono del alymno
                         System.out.println("Introduce el número de contacto del alumno: ");
                         telefono = Integer.parseInt(lector.nextLine());//Leemos el tfno.
                         if (telefono > 0) {//Si es mayor que 0...
@@ -148,7 +147,7 @@ public class Ejercicio3 {
                                 if (alumnos[i].getNia() == nia){//Si el nia de alguno de ellos es igual al obtenido...
                                     alumnos[i] = null;//Borramos lo que hay en esa posicion
                                     alumnos[i] = alumnos[Alumno.getnAlumnos()-1]; //Ponemos ese array como el último
-                                    Alumno.setnAlumnos(Alumno.getnAlumnos()-1);//reducimos en 1 el numero de alumnos.
+                                    Alumno.decrementoAlumnos();//reducimos en 1 el numero de alumnos.
                                 }
                             }
                             System.out.println("Se ha borrado el alumno!!");//Mostramos que se ha borrado.
@@ -218,29 +217,9 @@ public class Ejercicio3 {
                     salir = false;
                     System.out.println("Error!!!! %n");
             }
+            lector.nextLine();
         }while(!salir);
     }
-
-    /**
-     * Método que borra un alumno con el nia recibido como parámetro
-     * @param alumnos array que contiene los alumnos
-     * @param nia nia a valorar
-     * @return devuelve el array sin el alumno a borrar
-     */
-    public static Alumno[] borrarAlumno (Alumno[] alumnos, int nia){
-        Alumno[] aux = new Alumno[500];
-        int contador = 0;
-        for (int i = 0; i < Alumno.getnAlumnos(); i++){
-            if (alumnos[i].getNia() != nia){
-               aux[contador] = alumnos[i];
-               contador++;
-            }else{
-                Alumno.setnAlumnos(Alumno.getnAlumnos()-1);
-            }
-        }
-        return aux;
-    }
-
     /**
      * Método que imprime todos los alumnos con un mismo NIA aunque solo podrá ser 1
      * @param alumnos array que contiene los alumnos

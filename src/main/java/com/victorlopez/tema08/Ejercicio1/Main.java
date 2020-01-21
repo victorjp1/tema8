@@ -2,7 +2,7 @@ package com.victorlopez.tema08.Ejercicio1;
 
 import java.util.Scanner;
 
-public class Ejercicio1 {
+public class Main {
     public static void main(String[] args) {
         String color;
         String modelo;

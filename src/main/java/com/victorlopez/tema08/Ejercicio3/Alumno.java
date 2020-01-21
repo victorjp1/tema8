@@ -21,10 +21,9 @@ public class Alumno {
 
     /**
      * Método para asignar el número de alumnos
-     * @param nAlumnos número de alumnos
      */
-    public static void setnAlumnos(int nAlumnos) {
-        Alumno.nAlumnos = nAlumnos;
+    public static void decrementoAlumnos() {
+        Alumno.nAlumnos = Alumno.nAlumnos - 1;
     }
 
     private String nombre;//Variable que almacena el nombre del alumno
