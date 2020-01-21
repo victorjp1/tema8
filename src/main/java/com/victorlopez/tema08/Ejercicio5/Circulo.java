@@ -112,4 +112,12 @@ public class Circulo {
             System.out.printf("en el punto (%.2f, %.2f).%n", centro.getX(), centro.getY());
         }
     }
+    /**
+     * Imprimimos circulo.
+     */
+    public void imprimirCirculo(){
+        verCirculo();
+        System.out.printf("El área es: %.2f %n", calcularArea());;
+        System.out.printf("El perímetro es: %.2f %n",calcularPerimetro());
+    }
 }

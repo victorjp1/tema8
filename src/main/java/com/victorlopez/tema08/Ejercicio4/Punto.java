@@ -1,7 +1,5 @@
 package com.victorlopez.tema08.Ejercicio4;
 
-import com.victorlopez.tema08.Ejercicio5.Circulo;
-
 public class Punto {
     private double x;
     private double y;
@@ -37,14 +35,5 @@ public class Punto {
             double cateto2 = y - p2.getY();
             double hipotenusa = Math.sqrt(cateto1*cateto1 + cateto2*cateto2);
             return hipotenusa;
-    }
-    /**
-     * Imprimimos circulo
-     * @param c
-     */
-    public static void imprimirCirculo(Circulo c){
-        c.verCirculo();
-        System.out.printf("El área es: %.2f %n", c.calcularArea());;
-        System.out.printf("El perímetro es: %.2f %n",c.calcularPerimetro());
     }
 }
