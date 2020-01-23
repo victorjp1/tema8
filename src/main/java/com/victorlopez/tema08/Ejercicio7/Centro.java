@@ -7,6 +7,14 @@ public class Centro {
     static Scanner lector = new Scanner (System.in);
     public Centro(final int MAX) {
         this.pacientes = new Paciente[MAX];
+
+    }
+    public void crearPacientes(){
+        pacientes[Paciente.getnPacientes()] = new Paciente (666666, "Víctor López Fornés", 1, 34, "Ser demasiado bacano");
+        pacientes[Paciente.getnPacientes()] = new Paciente (55555, "KSDA Fornés", 1, 54, "Ser demasiado bacano");
+        pacientes[Paciente.getnPacientes()] = new Paciente (4444, "Luís Fornés Dengra", 2, 89, "Ser demasiado bacano");
+        pacientes[Paciente.getnPacientes()] = new Paciente (7777777, "Germán Fornés", 1, 15, "Ser demasiado bacano");
+        pacientes[Paciente.getnPacientes()] = new Paciente (8888888, "Antonio López Ramírez", 2, 104, "Ser demasiado bacano");
     }
     public void nuevoPaciente(){
         boolean validado;
@@ -40,7 +48,7 @@ public class Centro {
         do {
             System.out.println("Introduce la edad: ");
             edad = Integer.parseInt(lector.nextLine());
-            if (edad > 0){
+            if (edad > 0 && edad <= 150){
                 validado = true;
             }else{
                 validado = false;
@@ -72,8 +80,12 @@ public class Centro {
         }while(!validado);
         pacientes[Paciente.getnPacientes()] = new Paciente (sip, nombre, sexo, edad, sintomatologia);
     }
+
     public void pausa(){
         System.out.println("Pulsa intro para continuar.");
         lector.nextLine();
+    }
+    public void Consultas(){
+
     }
 }
