@@ -17,10 +17,13 @@ public class Main {
                     System.out.println(t1.venderBicicleta());//Vendemos una bicicleta, la eliminamos de la tienda y imprimimos la venta o el error.
                     break;
                 case 3:
-                    t1.Consultas();//Sacamos el menú de consultas y hacemos las consultas según la opción.
+                    t1.eliminarBicicleta();//Sacamos el menú de consultas y hacemos las consultas según la opción.
                     break;
                 case 4:
-                    t1.stock();//Imprimimos stock
+                    t1.consultas();//Imprimimos stock
+                    break;
+                case 5:
+                    t1.mostrarStock();//Eliminamos bicicleta
                     break;
                 case 0:
                     salir = true;//Salimos de la app.
@@ -43,12 +46,13 @@ public class Main {
             System.out.println("*************************");
             System.out.println("1. Añadir bicicleta");
             System.out.println("2. Vender bicicleta");
-            System.out.println("3. Consultar bicicleta");
-            System.out.println("4. Mostrar stock");
+            System.out.println("3. Eliminar bicicleta");
+            System.out.println("4. Consultar bicicleta");
+            System.out.println("5. Mostrar stock");
             System.out.println("-------------------------\n");
             System.out.println("0. Salir");
             opcion = Integer.parseInt(lector.nextLine());
-            if (opcion >= 0 && opcion <= 4){
+            if (opcion >= 0 && opcion <= 5){
                 validacion = true;
             }else{
                 validacion = false;

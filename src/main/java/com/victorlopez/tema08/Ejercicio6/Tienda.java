@@ -12,6 +12,12 @@ public class Tienda {
     public Tienda(final int MAX_BICIS) {
         this.bicicletas = new Bicicleta[MAX_BICIS];
         this.aux = new Bicicleta[MAX_BICIS];
+        GregorianCalendar fecha = new GregorianCalendar();
+        bicicletas[Bicicleta.getnBicicletas()] = new Bicicleta(4545, "trek", "hola", 3421, 43245, true, fecha, 54695);
+        bicicletas[Bicicleta.getnBicicletas()] = new Bicicleta(38, "trek", "hola", 56, 54, false, fecha, 487564);
+        bicicletas[Bicicleta.getnBicicletas()] = new Bicicleta(37, "trek", "hola", 563, 495879, true, fecha, 324);
+        bicicletas[Bicicleta.getnBicicletas()] = new Bicicleta(9699, "connor", "adios", 435, 5435, false, fecha, 455);
+        bicicletas[Bicicleta.getnBicicletas()] = new Bicicleta(986, "connor", "adios", 345, 435, true, fecha, 868);
     }
 
     /**
@@ -44,111 +50,128 @@ public class Tienda {
             if (!validado) {//Si es incorrecta
                 System.out.println("Una referencia no puede ser negativa");//Mostramos error
                 pausa();//Pausamos para que pueda leer
+            }else{
+                int posicionBici = posicionReferencia(referencia);//Método que determina si la referencia se encuentra en las bicis ya creadas o no.
+                if(posicionBici >= 0){//Si es mayor que 0... es decir, si existe...
+                    bicicletas[posicionBici].incrementoExistencias();//Incrementamos el número de existencias de esa bici.
+                    System.out.println("Hemos añadido la bici correctamente!");
+                    pausa();
+                }else{//Si es menor que 0..., concretamente si es -1 pedimos todos lso datos y la creamos.
+                    do {
+                        System.out.println("Introduce la marca: ");//Pedimos la marca
+                        marca = lector.nextLine();//Leemos la marca
+                        validado = marca.length() > 2;//Validamos
+                        if (!validado) {//Si es incorrecta
+                            //Mostramos mensaje de error y pausamos
+                            System.out.println("La marca debe tener almenos 2 caracteres");
+                            pausa();
+                        }
+                    } while (!validado);
+
+                    do {
+                        System.out.println("Introduce el modelo: ");//Pedimos el modelo
+                        modelo = lector.nextLine();//leemos el modelo
+                        validado = modelo.length() > 2;//Validamos el modelo
+                        if (!validado) {//Si es incorrecto
+                            //Mostramos un mensaje de error y pausamos
+                            System.out.println("El modelo debe tener almenos 2 caracteres");
+                            pausa();
+                        }
+                    } while (!validado);
+                    do {
+                        //Pedimos el peso y lo leemos
+                        System.out.println("Introduce el peso en Kg: ");
+                        pesoKg = lector.nextDouble();
+                        lector.nextLine();
+                        validado = pesoKg >= 0;//Validamos
+                        if (!validado) {//Si es incorrecto
+                            //Mostramos mensaje de error.
+                            System.out.println("El preco debe ser mayor que 0.");
+                            pausa();
+                        }
+                    } while (!validado);
+                    do {
+                        //Pedimos el tamaño en ruedas y lo leemos
+                        System.out.println("Introduce el tamaño de las ruedas en pulgadas: ");
+                        tamanyoRuedas = lector.nextDouble();
+                        lector.nextLine();
+                        validado = tamanyoRuedas > 0;//Validamos
+                        if (!validado) {//Si es incorrecto
+                            //Mostramos mensaje de error y pausamos.
+                            System.out.println("El tamaño de las ruedas debe ser mayor que 0.");
+                            pausa();
+                        }
+                    } while (!validado);
+                    do {
+                        //Preguntamos si la bici tiene motor y leemos s/n
+                        System.out.println("La bici tiene motor? [S/N]:");
+                        c = lector.nextLine().toLowerCase().charAt(0);
+                        if (c == 's'){//Si es afirmativo
+                            motor = true;//Motor es true.
+                            validado = true;//Validado es true, correcto
+                        }else if (c == 'n'){//Si es negativo
+                            motor = false;//Motor es igual a false
+                            validado = true;//Validado = true
+                        }else{//Si no es s o n...
+                            //La opcion es incorrecta y pausa, validado se vuelve en false
+                            System.out.println("Opción incorrecta");
+                            pausa();
+                            validado = false;
+                            motor = false;
+                        }
+                    }while (!validado);
+
+                    do {
+                        //Pedimos la fecha de fabricacion y la leemos como String
+                        System.out.println("Fecha de fabricación: (dd/mm/yyyy): ");
+                        fechaFabricacionString = lector.nextLine();
+                        //Establecemos el formato de fecha.
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        try {
+                            //Convertimos a fecha y se lo asignamos a gregorian calendar
+                            Date date = sdf.parse(fechaFabricacionString);
+                            fechaFabricacion = new GregorianCalendar();
+                            fechaFabricacion.setTime(date);
+                            validado = true;
+                        } catch (ParseException pe) {
+                            //Si es algo diferente imprimimos un mensaje de error y validación es false
+                            validado = false;
+                            System.out.println("Error!");
+                            pausa();
+                        }
+                    } while (!validado);
+                    do {
+                        //Pide el precio en euros y lo leemos
+                        System.out.println("Introduce el precio en euros: ");
+                        precio = lector.nextDouble();
+                        lector.nextLine();
+                        validado = precio > 0;//Comprobamos
+                        if (!validado) {//Si es incorrecto mostramos mensaje de error y pausamos
+                            System.out.println("El precio no puede ser negativo: ");
+                            pausa();
+                        }
+                    } while (!validado);
+                    //Creamos la bicicleta
+                    bicicletas[Bicicleta.getnBicicletas()] = new Bicicleta(referencia, marca, modelo, pesoKg, tamanyoRuedas, motor, fechaFabricacion, precio);
+                    System.out.println("Bicicleta añadida correctamente!");
+                }
             }
         }while (!validado);
-            do {
-                System.out.println("Introduce la marca: ");//Pedimos la marca
-                marca = lector.nextLine();//Leemos la marca
-                validado = marca.length() > 2;//Validamos
-                if (!validado) {//Si es incorrecta
-                    //Mostramos mensaje de error y pausamos
-                    System.out.println("La marca debe tener almenos 2 caracteres");
-                    pausa();
-                }
-            } while (!validado);
 
-            do {
-                System.out.println("Introduce el modelo: ");//Pedimos el modelo
-                modelo = lector.nextLine();//leemos el modelo
-                validado = modelo.length() > 2;//Validamos el modelo
-                if (!validado) {//Si es incorrecto
-                    //Mostramos un mensaje de error y pausamos
-                    System.out.println("El modelo debe tener almenos 2 caracteres");
-                    pausa();
-                }
-            } while (!validado);
-            do {
-                //Pedimos el peso y lo leemos
-                System.out.println("Introduce el peso en Kg: ");
-                pesoKg = lector.nextDouble();
-                lector.nextLine();
-                validado = pesoKg >= 0;//Validamos
-                if (!validado) {//Si es incorrecto
-                    //Mostramos mensaje de error.
-                    System.out.println("El preco debe ser mayor que 0.");
-                    pausa();
-                }
-            } while (!validado);
-            do {
-                //Pedimos el tamaño en ruedas y lo leemos
-                System.out.println("Introduce el tamaño de las ruedas en pulgadas: ");
-                tamanyoRuedas = lector.nextDouble();
-                lector.nextLine();
-                validado = tamanyoRuedas > 0;//Validamos
-                if (!validado) {//Si es incorrecto
-                    //Mostramos mensaje de error y pausamos.
-                    System.out.println("El tamaño de las ruedas debe ser mayor que 0.");
-                    pausa();
-                }
-            } while (!validado);
-            do {
-                //Preguntamos si la bici tiene motor y leemos s/n
-                System.out.println("La bici tiene motor? [S/N]:");
-                c = lector.nextLine().toLowerCase().charAt(0);
-                if (c == 's'){//Si es afirmativo
-                    motor = true;//Motor es true.
-                    validado = true;//Validado es true, correcto
-                }else if (c == 'n'){//Si es negativo
-                    motor = false;//Motor es igual a false
-                    validado = true;//Validado = true
-                }else{//Si no es s o n...
-                    //La opcion es incorrecta y pausa, validado se vuelve en false
-                    System.out.println("Opción incorrecta");
-                    pausa();
-                    validado = false;
-                    motor = false;
-                }
-            }while (!validado);
-
-            do {
-                //Pedimos la fecha de fabricacion y la leemos como String
-                System.out.println("Fecha de fabricación: (dd/mm/yyyy): ");
-                fechaFabricacionString = lector.nextLine();
-                //Establecemos el formato de fecha.
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                try {
-                    //Convertimos a fecha y se lo asignamos a gregorian calendar
-                    Date date = sdf.parse(fechaFabricacionString);
-                    fechaFabricacion = new GregorianCalendar();
-                    fechaFabricacion.setTime(date);
-                    validado = true;
-                } catch (ParseException pe) {
-                    //Si es algo diferente imprimimos un mensaje de error y validación es false
-                    validado = false;
-                    System.out.println("Error!");
-                    pausa();
-                }
-            } while (!validado);
-            do {
-                //Pide el precio en euros y lo leemos
-                System.out.println("Introduce el precio en euros: ");
-                precio = lector.nextDouble();
-                lector.nextLine();
-                validado = precio > 0;//Comprobamos
-                if (!validado) {//Si es incorrecto mostramos mensaje de error y pausamos
-                    System.out.println("El precio no puede ser negativo: ");
-                    pausa();
-                }
-            } while (!validado);
-            //Creamos la bicicleta
-            bicicletas[Bicicleta.getnBicicletas()] = new Bicicleta(referencia, marca, modelo, pesoKg, tamanyoRuedas, motor, fechaFabricacion, precio);
     }
-
+    public int posicionReferencia(int referencia){
+        for (int i = 0; i < Bicicleta.getnBicicletas(); i++){
+            if (referencia == bicicletas[i].getReferencia()){
+                return i;
+            }
+        }
+        return -1;
+    }
     /**
      * Método para vender una bicicleta
      * @return devolvemos un String que dice si el resultado de la operación es correcto o incorrecto
      */
-    public String venderBicicleta(){
+    public String eliminarBicicleta(){
         int referencia;
         System.out.println("Introduce el número de referencia: ");
         referencia = Integer.parseInt(lector.nextLine());
@@ -157,16 +180,41 @@ public class Tienda {
                 bicicletas[i] = null;//Borramos lo que hay en esa posicion
                 bicicletas[i] = bicicletas[Bicicleta.getnBicicletas()-1]; //Ponemos ese array como el último
                 Bicicleta.decrementoBicicletas();
-                return "Bicicleta " + referencia + " se ha vendido correctamente";
+                return "Bicicleta " + referencia + " borrada correctamente";
             }
         }
-        return "No hay stock de esta bicicleta en la tienda!";
+        return "No existe esta bicicleta!";
+    }
+    /**
+     * Método para vender una bicicleta
+     * @return devolvemos un String que dice si el resultado de la operación es correcto o incorrecto
+     */
+    public String venderBicicleta(){
+        int referencia;
+        String aux = "";
+        System.out.println("Introduce el número de referencia: ");
+        referencia = Integer.parseInt(lector.nextLine());
+        for (int i = 0; i < Bicicleta.getnBicicletas(); i++){
+            if(referencia == bicicletas[i].getReferencia()){
+                if (bicicletas[i].getnExistencias() >= 1) {
+                    bicicletas[i].decrementoExistencias();
+                    aux = "Bicicleta " + referencia + " vendida correctamente";
+                    return aux;
+                }else{
+                    aux = "No hay stock de esta bicicleta";
+                    return aux;
+                }
+            }else{
+                aux = "No existe esta bicicleta!";
+            }
+        }
+        return aux;
     }
 
     /**
      * Método para consultar, muestra menú, valora opciones y hace las consultas con sus debidos métodos.
      */
-    public void Consultas(){
+    public void consultas(){
         boolean menuPrincipal = false;
         do {
             System.out.println("**********************");
@@ -192,7 +240,7 @@ public class Tienda {
                     contador = consultaMarca(aux);
                     if (contador > 0){
                         for (int i = 0; i < contador; i++){
-                            aux[i].toString();
+                            System.out.println(aux[i].toString());
                         }
                     }else{
                         System.out.println("No tenemos bicis de esa marca!");
@@ -203,7 +251,7 @@ public class Tienda {
                     contador = consultarModelo(aux);
                     if (contador > 0){
                         for (int i = 0; i < contador; i++){
-                            aux[i].toString();
+                            System.out.println(aux[i].toString());
                         }
                     }else{
                         System.out.println("No tenemos bicis de ese modelo!");
@@ -277,11 +325,9 @@ public class Tienda {
     /**
      * Método para calcular el Stock de bicicletas
      */
-    public void stock(){
-        int cantidad;
-        int referencia;
+    public void mostrarStock(){
         for (int i = 0; i < Bicicleta.getnBicicletas(); i++){
-
+            System.out.println(bicicletas[i].toString());
         }
     }
 }

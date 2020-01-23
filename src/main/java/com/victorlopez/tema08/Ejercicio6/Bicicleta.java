@@ -37,12 +37,25 @@ public class Bicicleta {
         nBicicletas++;
         nExistencias++;
     }
-
+    public void incrementoExistencias(){
+        nExistencias++;
+    }
+    public void decrementoExistencias(){
+        nExistencias++;
+    }
     /**
      * Decrementa el número de bicicletas
      */
     public static void decrementoBicicletas(){
         nBicicletas--;
+    }
+
+    /**
+     * Método que devuelve el numero de existencias de esa bici
+     * @return
+     */
+    public int getnExistencias() {
+        return nExistencias;
     }
 
     /**
@@ -123,15 +136,16 @@ public class Bicicleta {
      */
     @Override
     public String toString() {
-        return "Bicicleta{" +
-                "referencia=" + referencia +
-                ", marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", pesoKg=" + pesoKg +
-                ", tamanyoRuedas=" + tamanyoRuedas +
-                ", motor=" + motor +
-                ", fechaFabricacion=" + fechaFabricacion +
-                ", precio=" + precio +
-                '}';
+        return "Bicicleta (" +
+                "referencia =" + referencia +
+                ", marca ='" + marca + '\'' +
+                ", modelo ='" + modelo + '\'' +
+                ", pesoKg =" + pesoKg +
+                ", tamanyoRuedas =" + tamanyoRuedas +
+                ", motor =" + motor +
+                ", fechaFabricacion =" + fechaFabricacion +
+                ", precio =" + precio +
+                ", stock =" + nExistencias +
+                ')';
     }
 }
