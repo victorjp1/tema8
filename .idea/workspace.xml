@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17ca2b76-740d-4fd2-8757-24345775a749" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/victorlopez/tema08/Ejercicio7/AltaMedica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/victorlopez/tema08/Ejercicio7/AtencionMedica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/victorlopez/tema08/Ejercicio7/AtencionMedica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/victorlopez/tema08/Ejercicio7/Centro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/victorlopez/tema08/Ejercicio7/Centro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/victorlopez/tema08/Ejercicio7/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/victorlopez/tema08/Ejercicio7/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/victorlopez/tema08/Ejercicio7/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/victorlopez/tema08/Ejercicio7/Paciente.java" afterDir="false" />
@@ -46,20 +55,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
-  <component name="RunManager" selected="Application.Main (3)">
-    <configuration name="Ejercicio1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.victorlopez.tema08.Ejercicio1.Ejercicio1" />
-      <module name="tema8.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.victorlopez.tema08.Ejercicio1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Ejercicio3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.victorlopez.tema08.Ejercicio3.Ejercicio3" />
       <module name="tema8.main" />
@@ -112,13 +108,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.victorlopez.tema08.Ejercicio7.Main" />
+      <module name="tema8.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.victorlopez.tema08.Ejercicio7.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main (3)" />
         <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Ejercicio3" />
-        <item itemvalue="Application.Ejercicio1" />
       </list>
     </recent_temporary>
   </component>
@@ -156,10 +165,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="706" y="357" width="564" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1578817656250" />
-    <state x="1264" y="256" width="544" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1579776498257">
+    <state x="1264" y="256" width="544" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1579878583070">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1264" y="256" width="544" height="592" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1579776498257" />
+    <state x="1264" y="256" width="544" height="592" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1579878583070" />
     <state x="615" y="480" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1579023852410">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -172,22 +181,22 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1239" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1579466469773" />
-    <state width="881" height="119" key="GridCell.Tab.0.bottom" timestamp="1579855366324">
+    <state width="881" height="329" key="GridCell.Tab.0.bottom" timestamp="1579879043031">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="881" height="119" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1579855366324" />
-    <state width="881" height="119" key="GridCell.Tab.0.center" timestamp="1579855366324">
+    <state width="881" height="329" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1579879043031" />
+    <state width="881" height="329" key="GridCell.Tab.0.center" timestamp="1579879043030">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="881" height="119" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1579855366324" />
-    <state width="881" height="119" key="GridCell.Tab.0.left" timestamp="1579855366324">
+    <state width="881" height="329" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1579879043030" />
+    <state width="881" height="329" key="GridCell.Tab.0.left" timestamp="1579879043029">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="881" height="119" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1579855366324" />
-    <state width="881" height="119" key="GridCell.Tab.0.right" timestamp="1579855366324">
+    <state width="881" height="329" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1579879043029" />
+    <state width="881" height="329" key="GridCell.Tab.0.right" timestamp="1579879043031">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="881" height="119" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1579855366324" />
+    <state width="881" height="329" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1579879043031" />
     <state width="1807" height="433" key="GridCell.Tab.1.bottom" timestamp="1579855361627">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

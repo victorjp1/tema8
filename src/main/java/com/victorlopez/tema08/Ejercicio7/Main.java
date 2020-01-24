@@ -15,17 +15,19 @@ public class Main {
             int opcion = mostrarMenu();
             switch (opcion){
                 case 1:
-                    c1.nuevoPaciente();
+                    System.out.println(c1.nuevoPaciente());
                     break;
                 case 2:
-                    //c1.atenderPaciente();
+                    System.out.println(c1.atenderPaciente());
                     break;
                 case 3:
-                    opcionConsulta = menuConsultas();
-                    //c1.consultas(opcionConsulta);
+                    do {
+                        opcionConsulta = menuConsultas();
+                        c1.consultas(opcionConsulta);
+                    }while(opcionConsulta != 0);
                     break;
                 case 4:
-                    //c1.altaMedica;
+                    System.out.println(c1.altaMedica());
                     break;
                 case 0:
                     salir = true;
@@ -33,7 +35,7 @@ public class Main {
             }
         }while(!salir);
     }
-    public static int menuConsultas(){
+    private static int menuConsultas(){
         int opcion;
         boolean validado;
         do {
@@ -56,7 +58,7 @@ public class Main {
         }while (!validado);
         return opcion;
     }
-    public static int mostrarMenu(){
+    private static int mostrarMenu(){
         int opcion;
         boolean validado;
         do {
