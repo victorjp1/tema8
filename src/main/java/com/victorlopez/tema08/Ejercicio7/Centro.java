@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Centro {
     private Paciente[] pacientes;
     static Scanner lector = new Scanner (System.in);
+    private AtencionMedica[] atenciones = new AtencionMedica[500];
     public Centro(final int MAX) {
         this.pacientes = new Paciente[MAX];
 

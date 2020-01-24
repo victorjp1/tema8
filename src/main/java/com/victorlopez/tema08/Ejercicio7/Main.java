@@ -8,8 +8,8 @@ public class Main {
         lector = new Scanner(System.in);
         int opcionConsulta;
         boolean salir = false;
-        final int MAX_ALUMNOS = 40;
-        Centro c1 = new Centro(MAX_ALUMNOS);
+        final int MAX_PACIENTES = 40;
+        Centro c1 = new Centro(MAX_PACIENTES);
         c1.crearPacientes();
         do {
             int opcion = mostrarMenu();
@@ -22,7 +22,7 @@ public class Main {
                     break;
                 case 3:
                     opcionConsulta = menuConsultas();
-                    c1.consultas(opcionConsulta);
+                    //c1.consultas(opcionConsulta);
                     break;
                 case 4:
                     //c1.altaMedica;
