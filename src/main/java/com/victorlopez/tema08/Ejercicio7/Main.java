@@ -35,6 +35,11 @@ public class Main {
             }
         }while(!salir);
     }
+
+    /**
+     * Método para imprimir un menú para las consultas, leer la opcion y validarla
+     * @return devuelve la opcion ya validada
+     */
     private static int menuConsultas(){
         int opcion;
         boolean validado;
@@ -58,6 +63,11 @@ public class Main {
         }while (!validado);
         return opcion;
     }
+
+    /**
+     * Método que muestra el menú principal de la app y lee la opción validándola
+     * @return devuelve la opcion ya validada
+     */
     private static int mostrarMenu(){
         int opcion;
         boolean validado;

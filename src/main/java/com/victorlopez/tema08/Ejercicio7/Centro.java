@@ -13,6 +13,10 @@ public class Centro {
         this.pacientes = new Paciente[MAX];
 
     }
+
+    /**
+     * Método para crear pacientes para hacer pruebas
+     */
     public void crearPacientes(){
         double[] constantes = {33, 60, 56.5, 70};
         double[] constantes2 = {50, 70, 80.5, 60};
@@ -21,10 +25,15 @@ public class Centro {
         pacientes[Paciente.getnPacientes()] = new Paciente (4444, "Luís Fornés Dengra", 2, 89, "Ser demasiado bacano");
         pacientes[Paciente.getnPacientes()] = new Paciente (7777777, "Germán Fornés", 1, 15, "Ser demasiado bacano");
         pacientes[Paciente.getnPacientes()] = new Paciente (8888888, "Antonio López Ramírez", 2, 104, "Ser demasiado bacano");
-        atenciones[0] = new AtencionMedica(pacientes[0], constantes);
-        atenciones[1] = new AtencionMedica(pacientes[1], constantes2);
+        atenciones[0] = new AtencionMedica(pacientes[0], constantes, pacientes[0].getSintomatologia());
+        atenciones[1] = new AtencionMedica(pacientes[1], constantes2, pacientes[1].getSintomatologia());
         atenciones[1].setMotivo("Ser muy poco bacano");
     }
+
+    /**
+     * Método que crea un nuevo paciente
+     * @return devuelve un String con el resultado de la operación
+     */
     public String nuevoPaciente(){
         long sip;
         String nombre;
@@ -49,8 +58,12 @@ public class Centro {
         }else{
             return "El paciente ya está registrado!";
         }
-
     }
+
+    /**
+     * Método para la atencion de un paciente
+     * @return devuelve un String con el resultado de la operacion
+     */
     public String atenderPaciente(){
         long sip;
         final int CONSTANTES = 4;
@@ -63,21 +76,24 @@ public class Centro {
                 constantes[1] = pedirPpm();
                 constantes[2] = pedirSistolica();
                 constantes[3] = pedirDiastolica();
-                atenciones[AtencionMedica.getnAtendidos()] = new AtencionMedica(pacientes[i], constantes);
-                pacientes[i] = null;
-                pacientes[i] = pacientes[Paciente.getnPacientes()-1]; //Ponemos ese array como el último
-                Paciente.decrementonPacientes();
+                atenciones[AtencionMedica.getnAtendidos()] = new AtencionMedica(pacientes[i], constantes, pacientes[i].getSintomatologia());
                 return "Atención registrada";
             }
         }
         return "El paciente no está en la lista de espera";
     }
-    public int pedirDiastolica(){
-        int diastolica;
+
+    /**
+     * Método para pedir la tension diastolica
+     * @return devolvemos la tension
+     */
+    public double pedirDiastolica(){
+        double diastolica;
         boolean validado;
         do {
             System.out.println("Introduce la tension diastólica del paciente: ");
-            diastolica = Integer.parseInt(lector.nextLine());
+            diastolica = lector.nextDouble();
+            lector.nextLine();
             if (diastolica < 0 || diastolica > 300){
                 validado = false;
                 System.out.println("Error");
@@ -88,12 +104,18 @@ public class Centro {
         }while(!validado);
         return diastolica;
     }
-    public int pedirSistolica(){
-        int sistolica;
+
+    /**
+     * Método que pide y valida la tension sistolica
+     * @return devuelve la tension
+     */
+    public double pedirSistolica(){
+        double sistolica;
         boolean validado;
         do {
             System.out.println("Introduce la tension sistólica del paciente: ");
-            sistolica = Integer.parseInt(lector.nextLine());
+            sistolica = lector.nextDouble();
+            lector.nextLine();
             if (sistolica < 0 || sistolica > 400){
                 validado = false;
                 System.out.println("Error");
@@ -104,6 +126,11 @@ public class Centro {
         }while(!validado);
         return sistolica;
     }
+
+    /**
+     * Método para pedir las pulsaciones por minuto
+     * @return devolvemos las pulsaciones por minuto
+     */
     public int pedirPpm(){
         boolean validado;
         int ppm;
@@ -120,6 +147,12 @@ public class Centro {
         }while(!validado);
         return ppm;
     }
+
+    /**
+     * Método que determina si el sip ya se encuentra registrado
+     * @param sip sip del paciente
+     * @return devuelve un boolean que determina si es unico o no
+     */
     public boolean unico(long sip){
         for (int i = 0; i < Paciente.getnPacientes(); i++){
             if (pacientes[i].getSip() == sip){
@@ -128,6 +161,11 @@ public class Centro {
         }
         return true;
     }
+
+    /**
+     * Método que pide la temperatura del paciente
+     * @return devuelve la temperatura
+     */
     public double pedirTemperatura(){
         double temperatura;
         boolean validado;
@@ -145,6 +183,11 @@ public class Centro {
         }while(!validado);
         return temperatura;
     }
+
+    /***
+     * Método que pide el sip del paciente
+     * @return devuelve el sip
+     */
     public long pedirSip(){
         long sip;
         boolean validado;
@@ -162,6 +205,11 @@ public class Centro {
         }while(!validado);
         return sip;
     }
+
+    /**
+     * Método para pedir el nombre del paciente
+     * @return devuelve el nombre del paciente en formato String
+     */
     public String pedirNombre(){
         String nombre;
         boolean validado;
@@ -178,6 +226,11 @@ public class Centro {
         }while(!validado);
         return nombre;
     }
+
+    /**
+     * Método que pide la edad del paciente
+     * @return devuelve la edad del paciente
+     */
     public int pedirEdad(){
         int edad;
         boolean validado;
@@ -194,6 +247,11 @@ public class Centro {
         }while(!validado);
         return edad;
     }
+
+    /**
+     * Método que pide el sexo del paciente
+     * @return devuelve un entero.
+     */
     public int pedirSexo(){
         boolean validado;
         int sexo;
@@ -214,6 +272,11 @@ public class Centro {
         }while(!validado);
         return sexo;
     }
+
+    /**
+     * Método que pide la sintomatologia del paciente
+     * @return devuelve la sintomatologia en formato String
+     */
     public String pedirSintomatologia(){
         boolean validado;
         String sintomatologia;
@@ -231,10 +294,18 @@ public class Centro {
         return sintomatologia;
     }
 
+    /**
+     * Método para hacer una pausa en pantalla
+     */
     public void pausa(){
         System.out.println("Pulsa intro para continuar.");
         lector.nextLine();
     }
+
+    /**
+     * Método para hacer consultas
+     * @param opcion opcion a valorar en el menu consultas
+     */
     public void consultas(int opcion){
         boolean salir = false;
             switch (opcion){
@@ -254,6 +325,11 @@ public class Centro {
                     break;
             }
     }
+
+    /**
+     * Método que da de alta a un paciente
+     * @return Devuelve un String con el resultado de la operacion
+     */
     public String altaMedica(){
         long sip = pedirSip();
         String motivo;
@@ -267,6 +343,10 @@ public class Centro {
         }
         return "No se ha encontrado el paciente o no ha sido atendido";
     }
+
+    /**
+     * Método que muestra estadísticas generales del historial
+     */
     public void mostrarEstadisticas(){
         System.out.printf("Media temperatura: %.2f %n", mediaTemperatura());
         System.out.printf("Media pulsaciones por minuto: %.2f %n", mediaPpm());
@@ -277,6 +357,11 @@ public class Centro {
         System.out.printf("Porcentaje de pacientes mujeres: %.2f %% %n", porcentajeMujeres());
         pausa();
     }
+
+    /**
+     * método que calcula el porcentaje de mujeres en base a los pacientes
+     * @return devuelve un numero real, es el porcentaje
+     */
     public double porcentajeMujeres(){
         double contador = 0;
         for (int i = 0; i < AtencionMedica.getnAtendidos(); i++){
@@ -286,6 +371,11 @@ public class Centro {
         }
         return 100 * contador / AtencionMedica.getnAtendidos();
     }
+
+    /**
+     * Método que calcula el porcentaje de hombres en base a los pacientes
+     * @return devuelve un numero real, es el porcentaje
+     */
     public double porcentajeHombres(){
         double contador = 0;
         for (int i = 0; i < AtencionMedica.getnAtendidos(); i++){
@@ -295,6 +385,11 @@ public class Centro {
         }
         return 100 * contador / AtencionMedica.getnAtendidos();
     }
+
+    /**
+     * Método que calcula la media de edad entre todos los pacientes
+     * @return devolvemos la media
+     */
     public double mediaEdad(){
         double acumulador = 0;
         for (int i = 0; i < AtencionMedica.getnAtendidos(); i++){
@@ -302,6 +397,10 @@ public class Centro {
         }
         return acumulador / AtencionMedica.getnAtendidos();
     }
+    /**
+     * Método que calcula la media de tensión diastólica entre todos los pacientes
+     * @return devolvemos la media
+     */
     public double mediaTensionDiasto(){
         double acumulador = 0;
         for (int i = 0; i< AtencionMedica.getnAtendidos(); i++){
@@ -309,6 +408,10 @@ public class Centro {
         }
         return acumulador / AtencionMedica.getnAtendidos();
     }
+    /**
+     * Método que calcula la media de tension sistolica entre todos los pacientes
+     * @return devolvemos la media
+     */
     public double mediaTensionSisto(){
         double acumulador = 0;
         for (int i = 0; i< AtencionMedica.getnAtendidos(); i++){
@@ -316,6 +419,10 @@ public class Centro {
         }
         return acumulador / AtencionMedica.getnAtendidos();
     }
+    /**
+     * Método que calcula la media de pulsaciones por minuto entre todos los pacientes
+     * @return devolvemos la media
+     */
     public double mediaPpm(){
         double acumulador = 0;
         for (int i = 0; i< AtencionMedica.getnAtendidos(); i++){
@@ -323,6 +430,10 @@ public class Centro {
         }
         return acumulador / AtencionMedica.getnAtendidos();
     }
+    /**
+     * Método que calcula la media de temperatura corporal entre todos los pacientes
+     * @return devolvemos la media
+     */
     public double mediaTemperatura(){
         double acumulador = 0;
         for (int i = 0; i < AtencionMedica.getnAtendidos(); i++){
@@ -330,14 +441,24 @@ public class Centro {
         }
         return acumulador / AtencionMedica.getnAtendidos();
     }
+
+    /**
+     * Método que muestra el historial de pacientes
+     */
     public void mostrarHistorico(){
         for (int i = 0; i < AtencionMedica.getnAtendidos(); i++){
                 System.out.println(atenciones[i].toString());
         }
         for (int i = 0; i < Paciente.getnPacientes(); i++){
-            System.out.println(pacientes[i].toString());
+            if (!pacientes[i].isAtendido()){
+                System.out.println(pacientes[i].toString());
+            }
         }
     }
+
+    /**
+     * Método que consulta en el historial sobre un sip.
+     */
     public void consultaSip(){
         long sip;
         sip = pedirSip();
