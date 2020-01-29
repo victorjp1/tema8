@@ -14,6 +14,11 @@ public class AnalizadorOperaciones {
         this.expresion = expresion;
         p1 = new Pila();
     }
+
+    /**
+     * Ejecuta la operacion matematica en notacion polaca inversa
+     * @return devuelve el resultado
+     */
     public double valorar(){
         double resultado = 0;
         for (int i = 0; i < expresion.length; i++){
@@ -31,6 +36,13 @@ public class AnalizadorOperaciones {
 
         return p1.pop();
     }
+
+    /**
+     * Método que pertenece a la clase que calcula una operacion sin necesidad de crear un
+     * objeto de la clase, pasándole la expresión
+     * @param expresion expresión a valorar
+     * @return devolvemos el resultado
+     */
     public static double valorar(String[] expresion){
         Pila p1 = new Pila();
         double resultado = 0;
@@ -49,6 +61,14 @@ public class AnalizadorOperaciones {
 
         return p1.pop();
     }
+
+    /**
+     * Método que hace operaciones dependiendo del signo
+     * @param op1 operando 1
+     * @param op2 operando 2
+     * @param operacion signo de la operacion
+     * @return
+     */
     private static double operacion(double op1, double op2, char operacion){
         if (operacion == '+'){
             return op1 + op2;
@@ -63,6 +83,12 @@ public class AnalizadorOperaciones {
         }
         return Integer.MIN_VALUE;
     }
+
+    /**
+     * ;étodo que valora si un String se puede convertir en un número o no
+     * @param str String a valorar
+     * @return devolvemos si es numérico o no
+     */
     private static boolean isNumeric(String str){
         try {
             double d = Double.parseDouble(str);
